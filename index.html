@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIDRE - Smarter Tax Services for Tanzania</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- 1. Landing Page View -->
+    <section id="view-landing" class="view active">
+        <!-- Landing Navbar -->
+        <header class="landing-nav">
+            <div class="logo-container">
+                <h1 class="logo-text" style="cursor:pointer;" onclick="switchView('view-landing')">TIDRE</h1>
+            </div>
+            <nav class="nav-links">
+                <a href="#" class="active">Home</a>
+                <a href="#">Taxpayer Services</a>
+                <a href="#" onclick="switchView('view-verify')">e-Invoices</a>
+                <a href="#" onclick="switchView('view-assistant')">AI Assistant</a>
+                <a href="#">About</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="btn-primary" onclick="switchView('view-dashboard')">Get Started</button>
+            </div>
+        </header>
+
+        <!-- Landing Hero -->
+        <div class="landing-hero">
+            <div class="hero-content">
+                <h1>TIDRE</h1>
+                <h2>Smarter Tax Services for Tanzania</h2>
+                <div class="hero-divider"></div>
+                <p>Secure. Simple. Intelligent.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary" onclick="switchView('view-dashboard')">Get Started <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+            <!-- The map graphic will be positioned via CSS -->
+            <div class="hero-graphic">
+                <!-- Using a placeholder for the Tanzania Map -->
+                <i class="fa-solid fa-map-location-dot" style="font-size: 15rem; color: rgba(255,255,255,0.2);"></i>
+            </div>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="features-container">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-user-circle"></i></div>
+                <h3>Digital Taxpayer Portal</h3>
+                <p>Register, file returns, make payments and manage your tax profile online.</p>
+                <i class="fa-solid fa-arrow-right feature-arrow"></i>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-brain"></i></div>
+                <h3>AI Compliance Support</h3>
+                <p>Get intelligent guidance, alerts and recommendations to stay compliant.</p>
+                <i class="fa-solid fa-arrow-right feature-arrow"></i>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                <h3>National e-Invoice</h3>
+                <p>Create, send and manage e-invoices in line with national standards.</p>
+                <i class="fa-solid fa-arrow-right feature-arrow"></i>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-chart-simple"></i></div>
+                <h3>Revenue Dashboard</h3>
+                <p>Real-time insights and analytics for better tax and business decisions.</p>
+                <i class="fa-solid fa-arrow-right feature-arrow"></i>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-store"></i></div>
+                <h3>Small Business Assistant</h3>
+                <p>Tailored tools and resources to help small businesses grow and comply.</p>
+                <i class="fa-solid fa-arrow-right feature-arrow"></i>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <h3>Secure Integration</h3>
+                <p>Enterprise-grade security and seamless integration with trusted systems.</p>
+                <i class="fa-solid fa-arrow-right feature-arrow"></i>
+            </div>
+        </div>
+
+        <!-- Notice Banner -->
+        <div class="notice-banner">
+            <div class="notice-content">
+                <i class="fa-solid fa-shield-cat" style="color: var(--accent-orange); font-size: 1.5rem;"></i>
+                <div>
+                    <strong>Important Notice</strong>
+                    <p style="margin:0; font-size: 0.9rem; color: var(--text-secondary);">TIDRE is the official digital platform for tax administration services in Tanzania.</p>
+                </div>
+            </div>
+            <a href="#" style="color: var(--accent-orange); font-weight: 600; font-size: 0.9rem;">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </section>
+    
+    <!-- 2. Taxpayer Dashboard View -->
+    <section id="view-dashboard" class="view">
+        <div class="app-layout">
+            <!-- Sidebar -->
+            <aside class="dashboard-sidebar">
+                <div class="sidebar-header green-bg">
+                    <h2 class="logo-text" style="cursor:pointer;" onclick="switchView('view-landing')">TIDRE</h2>
+                </div>
+                <nav class="sidebar-nav">
+                    <a href="#" class="active" onclick="switchView('view-dashboard')"><i class="fa-solid fa-border-all"></i> Overview</a>
+                    <a href="#" onclick="switchView('view-returns')"><i class="fa-regular fa-file-lines"></i> Returns</a>
+                    <a href="#" onclick="switchView('view-payments')"><i class="fa-regular fa-credit-card"></i> Payments</a>
+                    <a href="#" onclick="switchView('view-verify')"><i class="fa-solid fa-file-invoice"></i> e-Invoices</a>
+                    <a href="#" onclick="switchView('view-certificates')"><i class="fa-solid fa-certificate"></i> Certificates</a>
+                    <a href="#" onclick="switchView('view-assistant')"><i class="fa-regular fa-envelope"></i> Messages (AI)</a>
+                    <a href="#" onclick="switchView('view-profile')"><i class="fa-regular fa-user"></i> Profile</a>
+                </nav>
+                <div class="sidebar-footer">
+                    <a href="#" onclick="switchView('view-help')"><i class="fa-solid fa-headset"></i> Need help?<br><small>Contact Support</small></a>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="dashboard-main">
+                <header class="dashboard-topbar">
+                    <h2>Taxpayer Dashboard</h2>
+                    <div class="topbar-actions">
+                        <i class="fa-regular fa-bell"></i>
+                        <div class="user-profile">
+                            <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                            <span>Welcome, Amina <i class="fa-solid fa-chevron-down"></i></span>
+                        </div>
+                    </div>
+                </header>
+                
+                <div class="dashboard-content scrollable">
+                    <!-- Stats Row -->
+                    <div class="stats-row">
+                        <div class="card stat-card">
+                            <div class="stat-icon outline-green"><i class="fa-solid fa-wallet"></i></div>
+                            <div class="stat-info">
+                                <p>Outstanding Tax</p>
+                                <h3 class="text-green">TZS 120,000</h3>
+                            </div>
+                        </div>
+                        <div class="card stat-card">
+                            <div class="stat-icon outline-blue"><i class="fa-regular fa-calendar-days"></i></div>
+                            <div class="stat-info">
+                                <p>Next Return</p>
+                                <h3 class="text-blue">18 days</h3>
+                            </div>
+                        </div>
+                        <div class="card stat-card">
+                            <div class="stat-icon outline-green"><i class="fa-solid fa-shield-check"></i></div>
+                            <div class="stat-info">
+                                <p>Compliance Status</p>
+                                <h3 class="text-green">Good Standing</h3>
+                            </div>
+                        </div>
+                        <div class="card stat-card">
+                            <div class="stat-icon outline-blue"><i class="fa-solid fa-file-circle-check"></i></div>
+                            <div class="stat-info">
+                                <p>Verified Invoices</p>
+                                <h3 class="text-blue">246</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Actions Row -->
+                    <div class="actions-row">
+                        <button class="btn-action green-bg"><i class="fa-regular fa-credit-card"></i> Pay Tax <i class="fa-solid fa-chevron-right float-right"></i></button>
+                        <button class="btn-action navy-bg"><i class="fa-regular fa-file-lines"></i> File Return <i class="fa-solid fa-chevron-right float-right"></i></button>
+                        <button class="btn-action green-bg"><i class="fa-solid fa-plus"></i> Create Invoice <i class="fa-solid fa-chevron-right float-right"></i></button>
+                        <button class="btn-action navy-bg" onclick="switchView('view-verify')"><i class="fa-solid fa-shield-check"></i> Verify Receipt <i class="fa-solid fa-chevron-right float-right"></i></button>
+                    </div>
+
+                    <!-- Lower Split -->
+                    <div class="dashboard-split">
+                        <div class="card recent-activity">
+                            <div class="card-header">
+                                <h3>Recent Activity</h3>
+                                <a href="#">View All</a>
+                            </div>
+                            <ul class="activity-list">
+                                <li>
+                                    <div class="activity-icon green"><i class="fa-regular fa-credit-card"></i></div>
+                                    <div class="activity-details">
+                                        <p>Payment of TZS 120,000</p>
+                                        <small>Payment Receipt #PR-2024-000245</small>
+                                    </div>
+                                    <span class="badge green">Completed</span>
+                                    <span class="activity-date">12 May 2024</span>
+                                </li>
+                                <li>
+                                    <div class="activity-icon blue"><i class="fa-solid fa-file-invoice"></i></div>
+                                    <div class="activity-details">
+                                        <p>e-Invoice INV-2024-000246</p>
+                                        <small>Invoice verified</small>
+                                    </div>
+                                    <span class="badge green">Verified</span>
+                                    <span class="activity-date">11 May 2024</span>
+                                </li>
+                                <li>
+                                    <div class="activity-icon orange"><i class="fa-regular fa-file-lines"></i></div>
+                                    <div class="activity-details">
+                                        <p>VAT Return - April 2024</p>
+                                        <small>Return Filed</small>
+                                    </div>
+                                    <span class="badge blue">Filed</span>
+                                    <span class="activity-date">10 May 2024</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="side-panels">
+                            <div class="card deadline-panel">
+                                <h3>Upcoming Deadline</h3>
+                                <div class="deadline-box">
+                                    <i class="fa-regular fa-calendar-days text-orange"></i>
+                                    <div>
+                                        <strong>VAT Return - May 2024</strong>
+                                        <p>Due date: 31 May 2024</p>
+                                    </div>
+                                    <div class="days-remaining">
+                                        <strong>18 days</strong>
+                                        <span>remaining</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card compliance-panel">
+                                <h3>Tax Compliance Overview</h3>
+                                <div class="chart-mockup">
+                                    <div class="donut-chart">
+                                        <span>92%</span>
+                                        <small>Compliant</small>
+                                    </div>
+                                    <div class="chart-legend">
+                                        <p><span class="dot green"></span> Compliant <strong>92%</strong></p>
+                                        <p><span class="dot orange"></span> Needs Attention <strong>5%</strong></p>
+                                        <p><span class="dot gray"></span> Non-Compliant <strong>3%</strong></p>
+                                    </div>
+                                </div>
+                                <div class="compliance-message">
+                                    <i class="fa-solid fa-circle-check text-green"></i> Great job! You are compliant with your tax obligations.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </section>
+    
+    <!-- 3. Verify e-Invoice View -->
+    <section id="view-verify" class="view">
+        <div class="app-layout">
+            <!-- Solid Green Sidebar -->
+            <aside class="dashboard-sidebar green-bg" style="background-color: var(--tidre-green);">
+                <div class="sidebar-header">
+                    <h2 class="logo-text" style="cursor:pointer;" onclick="switchView('view-landing')">TIDRE</h2>
+                </div>
+                <nav class="sidebar-nav">
+                    <a href="#" onclick="switchView('view-landing')"><i class="fa-solid fa-house"></i> Home</a>
+                    <a href="#" onclick="switchView('view-dashboard')"><i class="fa-solid fa-border-all"></i> Dashboard</a>
+                    <div class="nav-group">
+                        <a href="#" class="active" style="background-color: rgba(255,255,255,0.2); border-left-color: white;"><i class="fa-solid fa-file-invoice"></i> e-Invoices <i class="fa-solid fa-chevron-down float-right" style="font-size: 0.8rem;"></i></a>
+                        <div class="nav-sub">
+                            <a href="#">My Invoices</a>
+                            <a href="#" class="active-sub" style="color: white;"><i class="fa-solid fa-circle" style="font-size: 0.4rem;"></i> Verify e-Invoice</a>
+                            <a href="#">Search History</a>
+                        </div>
+                    </div>
+                    <a href="#" onclick="switchView('view-reports')"><i class="fa-solid fa-chart-line"></i> Reports <i class="fa-solid fa-chevron-right float-right" style="font-size: 0.8rem;"></i></a>
+                    <a href="#" onclick="switchView('view-settings')"><i class="fa-solid fa-gear"></i> Settings <i class="fa-solid fa-chevron-right float-right" style="font-size: 0.8rem;"></i></a>
+                    <a href="#" onclick="switchView('view-help')"><i class="fa-regular fa-circle-question"></i> Help & Support <i class="fa-solid fa-chevron-right float-right" style="font-size: 0.8rem;"></i></a>
+                </nav>
+                <div class="sidebar-footer">
+                    <a href="#" onclick="switchView('view-help')"><i class="fa-solid fa-headset"></i> Need help?<br><small>Contact Support</small></a>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="dashboard-main">
+                <!-- Navy Topbar -->
+                <header class="dashboard-topbar" style="background-color: var(--tidre-navy); color: white;">
+                    <h2></h2> <!-- Empty title space for alignment -->
+                    <div class="topbar-actions">
+                        <div class="security-badge" style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: #cbd5e1; border-right: 1px solid #475569; padding-right: 16px;">
+                            <i class="fa-solid fa-shield-halved"></i> Secure. Transparent. Trusted.
+                        </div>
+                        <div class="user-profile">
+                            <div class="avatar" style="background-color: white; color: var(--tidre-navy);"><i class="fa-solid fa-user"></i></div>
+                            <span>User <i class="fa-solid fa-chevron-down"></i></span>
+                        </div>
+                    </div>
+                </header>
+                
+                <div class="dashboard-content scrollable">
+                    <div class="breadcrumb" style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 16px;">
+                        <i class="fa-solid fa-house"></i> Home / e-Invoices / <strong style="color: var(--tidre-green);">Verify</strong>
+                    </div>
+                    
+                    <h1 style="color: var(--tidre-navy); margin-bottom: 24px; font-weight: 700;">Verify e-Invoice</h1>
+                    
+                    <div class="verify-split">
+                        <!-- Left Panel: Scanner -->
+                        <div class="card scanner-card">
+                            <div class="scanner-tabs">
+                                <button class="active">Scan QR Code</button>
+                                <button>Enter Invoice Number</button>
+                            </div>
+                            <div class="scanner-frame-container">
+                                <div class="scanner-frame">
+                                    <!-- Mock QR Code inside the frame -->
+                                    <i class="fa-solid fa-qrcode" style="font-size: 8rem; color: var(--text-primary);"></i>
+                                    <div class="corner top-left"></div>
+                                    <div class="corner top-right"></div>
+                                    <div class="corner bottom-left"></div>
+                                    <div class="corner bottom-right"></div>
+                                </div>
+                            </div>
+                            <p class="scanner-hint"><i class="fa-solid fa-camera"></i> Position the QR code within the frame to scan</p>
+                        </div>
+                        
+                        <!-- Right Panel: Result -->
+                        <div class="card result-card">
+                            <div class="result-header">
+                                <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+                                <h2>Invoice Verified</h2>
+                            </div>
+                            <div class="invoice-details">
+                                <div class="detail-row">
+                                    <div class="detail-label"><i class="fa-regular fa-file-lines"></i> Invoice Number</div>
+                                    <div class="detail-value">INV-2026-004821</div>
+                                </div>
+                                <div class="detail-row">
+                                    <div class="detail-label"><i class="fa-regular fa-user"></i> Seller</div>
+                                    <div class="detail-value">Kijani Traders Ltd</div>
+                                </div>
+                                <div class="detail-row">
+                                    <div class="detail-label"><i class="fa-solid fa-id-badge"></i> TIN</div>
+                                    <div class="detail-value">***-***-***</div>
+                                </div>
+                                <div class="detail-row">
+                                    <div class="detail-label"><i class="fa-regular fa-calendar"></i> Date</div>
+                                    <div class="detail-value">11 May 2026</div>
+                                </div>
+                                <div class="detail-row">
+                                    <div class="detail-label"><i class="fa-solid fa-wallet"></i> Total Amount</div>
+                                    <div class="detail-value font-bold">TZS 118,000</div>
+                                </div>
+                                <div class="detail-row">
+                                    <div class="detail-label"><i class="fa-solid fa-percent"></i> VAT Amount</div>
+                                    <div class="detail-value font-bold">TZS 18,000</div>
+                                </div>
+                            </div>
+                            <button class="btn-primary full-width" style="margin-top: 24px; justify-content: center;"><i class="fa-solid fa-download"></i> Download Verified Copy</button>
+                        </div>
+                    </div>
+
+                    <!-- Security Features -->
+                    <div class="security-features">
+                        <div class="security-card">
+                            <i class="fa-solid fa-shield-check feature-icon" style="color: var(--tidre-green);"></i>
+                            <div>
+                                <h4>Secure & Reliable</h4>
+                                <p>All verifications are encrypted and processed securely.</p>
+                            </div>
+                        </div>
+                        <div class="security-card">
+                            <i class="fa-solid fa-lock feature-icon" style="color: var(--tidre-green);"></i>
+                            <div>
+                                <h4>Data Protection</h4>
+                                <p>Your data is protected in accordance with applicable laws.</p>
+                            </div>
+                        </div>
+                        <div class="security-card">
+                            <i class="fa-solid fa-badge-check feature-icon" style="color: var(--tidre-green);"></i>
+                            <div>
+                                <h4>Trusted Source</h4>
+                                <p>Verification confirms the authenticity of the e-Invoice.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </section>
+    
+    <!-- 4. AI Assistant View -->
+    <section id="view-assistant" class="view">
+        <div class="app-layout" style="flex-direction: column;">
+            <!-- Topbar (Green) -->
+            <header class="dashboard-topbar" style="background-color: var(--tidre-green); color: white; border: none;">
+                <h2 class="logo-text" style="cursor:pointer;" onclick="switchView('view-landing')">TIDRE</h2>
+                <div class="topbar-actions">
+                    <div style="font-size: 0.9rem; border-right: 1px solid rgba(255,255,255,0.2); padding-right: 16px;">
+                        <i class="fa-solid fa-globe"></i> Swahili | English
+                    </div>
+                    <div class="user-profile">
+                        <div class="avatar" style="background-color: white; color: var(--tidre-green); width: 24px; height: 24px;"><i class="fa-solid fa-user" style="font-size: 0.7rem;"></i></div>
+                        <span>My Account <i class="fa-solid fa-chevron-down"></i></span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Sub-topbar (Navy) -->
+            <div style="background-color: var(--tidre-navy); color: white; padding: 16px 32px; display: flex; align-items: center; gap: 12px;">
+                <div class="avatar" style="background-color: white; color: var(--tidre-navy); border-radius: 8px;"><i class="fa-solid fa-robot"></i></div>
+                <h2 style="font-size: 1.2rem; font-weight: 600;">TIDRE AI Assistant</h2>
+            </div>
+
+            <!-- Assistant Body -->
+            <div style="display: flex; flex-grow: 1; overflow: hidden;">
+                
+                <!-- Left Sidebar (White) -->
+                <aside style="width: 280px; background-color: var(--bg-white); border-right: 1px solid var(--border-light); display: flex; flex-direction: column; overflow-y: auto;">
+                    <div style="padding: 24px;">
+                        <h4 style="color: var(--tidre-navy); display: flex; align-items: center; gap: 8px; margin-bottom: 16px;"><i class="fa-regular fa-clock text-blue"></i> Recent topics</h4>
+                        <div class="recent-topic">
+                            <i class="fa-regular fa-message text-green"></i>
+                            <div>
+                                <p>When is my VAT return due?</p>
+                                <small>Just now</small>
+                            </div>
+                        </div>
+                        <div class="recent-topic">
+                            <i class="fa-regular fa-message text-green"></i>
+                            <div>
+                                <p>How do I verify an invoice?</p>
+                                <small>2 days ago</small>
+                            </div>
+                        </div>
+                        <div class="recent-topic">
+                            <i class="fa-regular fa-message text-green"></i>
+                            <div>
+                                <p>How can I pay tax?</p>
+                                <small>5 days ago</small>
+                            </div>
+                        </div>
+                        <div class="recent-topic">
+                            <i class="fa-regular fa-message text-green"></i>
+                            <div>
+                                <p>Speak to an Officer</p>
+                                <small>1 week ago</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="padding: 24px; border-top: 1px solid var(--border-light);">
+                        <h4 style="color: var(--tidre-navy); display: flex; align-items: center; gap: 8px; margin-bottom: 16px;"><i class="fa-solid fa-link text-green"></i> Quick links</h4>
+                        <a href="#" onclick="switchView('view-dashboard')" class="quick-link"><i class="fa-solid fa-border-all"></i> Dashboard <i class="fa-solid fa-chevron-right float-right"></i></a>
+                        <a href="#" onclick="switchView('view-returns')" class="quick-link"><i class="fa-regular fa-file-lines"></i> Returns <i class="fa-solid fa-chevron-right float-right"></i></a>
+                        <a href="#" onclick="switchView('view-payments')" class="quick-link"><i class="fa-regular fa-credit-card"></i> Payments <i class="fa-solid fa-chevron-right float-right"></i></a>
+                        <a href="#" onclick="switchView('view-certificates')" class="quick-link"><i class="fa-solid fa-briefcase"></i> Services <i class="fa-solid fa-chevron-right float-right"></i></a>
+                        <a href="#" onclick="switchView('view-help')" class="quick-link"><i class="fa-regular fa-circle-question"></i> Help Center <i class="fa-solid fa-chevron-right float-right"></i></a>
+                    </div>
+                </aside>
+
+                <!-- Center Chat Area -->
+                <main style="flex-grow: 1; display: flex; flex-direction: column; background-color: #F4F1EA; position: relative;">
+                    <div class="chat-history" id="chat-history">
+    <div class="chat-message bot">
+        <div class="chat-avatar"><i class="fa-solid fa-robot"></i></div>
+        <div class="chat-bubble">
+            <p>Habari yako! Karibu kwenye TIDRE AI Assistant! Nikusaidie nini leo kuhusu kodi au risiti?</p>
+        </div>
+    </div>
+    <div class="chat-message user">
+        <div class="chat-bubble">
+            <p>Mimi ni Machinga Kariakoo. Je, lazima ninunue mashine ya EFD ya laki nane?</p>
+        </div>
+        <div class="chat-avatar"><i class="fa-solid fa-user"></i></div>
+    </div>
+    <div class="chat-message bot">
+        <div class="chat-avatar"><i class="fa-solid fa-robot"></i></div>
+        <div class="chat-bubble">
+            <p>Hapana kabisa! Kwa mujibu wa sheria ya Presumptive Tax, biashara inayouza chini ya Shilingi Milioni 4 kwa mwaka <b>INASAMEHEWA KODI (0% Rate)</b>. Huna haja ya kununua mashine ya EFD! Tumia simu yako hii hii kutoa risiti za V-EFD bure ili ujenge Kodi-Score yako!</p>
+        </div>
+    </div>
+    <div class="chat-suggestions-box" style="margin-top: 16px;">
+        <p style="font-size: 0.9rem; margin-bottom: 12px; font-weight: bold; color: var(--text-secondary);">Maswali ya haraka:</p>
+        <div class="suggestion-grid" style="display: flex; flex-direction: column; gap: 8px;">
+            <button onclick="askAiQuestion('Ninawezaje kupata V-EFD kupitia simu yangu ya mkononi?')" style="text-align: left; background: white; border: 1px solid var(--border-light); padding: 12px; border-radius: 8px; cursor: pointer;">?? Jinsi ya kupata V-EFD kwenye simu</button>
+            <button onclick="askAiQuestion('Je, ni viwango gani vya kodi ya makadirio kwa mauzo ya chini ya milioni 14?')" style="text-align: left; background: white; border: 1px solid var(--border-light); padding: 12px; border-radius: 8px; cursor: pointer;">?? Viwango vya kodi ya makadirio (Tax Rates)</button>
+            <button onclick="askAiQuestion('Je, ninawezaje kulipa kodi yangu kwa mtandao wa simu (M-Pesa / Tigo Pesa)?')" style="text-align: left; background: white; border: 1px solid var(--border-light); padding: 12px; border-radius: 8px; cursor: pointer;">?? Jinsi ya kulipa kwa M-Pesa / USSD</button>
+        </div>
+    </div>
+</div>
+</div>
+</main>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 5. Returns View -->
+    <section id="view-returns" class="view">
+        <div class="app-layout">
+            <!-- Sidebar -->
+            <aside class="dashboard-sidebar">
+                <div class="sidebar-header green-bg">
+                    <h2 class="logo-text" style="cursor:pointer;" onclick="switchView('view-landing')">TIDRE</h2>
+                </div>
+                <nav class="sidebar-nav">
+                    <a href="#" onclick="switchView('view-dashboard')"><i class="fa-solid fa-border-all"></i> Overview</a>
+                    <a href="#" class="active"><i class="fa-regular fa-file-lines"></i> Returns</a>
+                    <a href="#" onclick="switchView('view-payments')"><i class="fa-regular fa-credit-card"></i> Payments</a>
+                    <a href="#" onclick="switchView('view-verify')"><i class="fa-solid fa-file-invoice"></i> e-Invoices</a>
+                    <a href="#" onclick="switchView('view-certificates')"><i class="fa-solid fa-certificate"></i> Certificates</a>
+                    <a href="#" onclick="switchView('view-assistant')"><i class="fa-regular fa-envelope"></i> Messages (AI)</a>
+                    <a href="#" onclick="switchView('view-profile')"><i class="fa-regular fa-user"></i> Profile</a>
+                </nav>
+                <div class="sidebar-footer">
+                    <a href="#" onclick="switchView('view-help')"><i class="fa-solid fa-headset"></i> Need help?<br><small>Contact Support</small></a>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="dashboard-main">
+                <header class="dashboard-topbar">
+                    <h2>Tax Returns</h2>
+                    <div class="topbar-actions">
+                        <button class="btn-primary" style="margin-right: 16px;"><i class="fa-solid fa-plus"></i> File New Return</button>
+                        <i class="fa-regular fa-bell"></i>
+                        <div class="user-profile">
+                            <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                            <span>Welcome, Amina <i class="fa-solid fa-chevron-down"></i></span>
+                        </div>
+                    </div>
+                </header>
+                
+                <div class="dashboard-content scrollable">
+                    <div class="card" style="padding: 0;">
+                        <div style="padding: 24px; border-bottom: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center;">
+                            <h3 style="margin: 0;">Filing History</h3>
+                            <div class="scanner-tabs" style="margin: 0; border: none;">
+                                <button class="active" style="padding: 8px 16px;">All</button>
+                                <button style="padding: 8px 16px;">Pending</button>
+                                <button style="padding: 8px 16px;">Drafts</button>
+                            </div>
+                        </div>
+                        <table style="width: 100%; text-align: left; border-collapse: collapse;">
+                            <thead>
+                                <tr style="background-color: var(--bg-offwhite); color: var(--text-secondary); font-size: 0.9rem;">
+                                    <th style="padding: 16px 24px; font-weight: 500;">Tax Type</th>
+                                    <th style="padding: 16px 24px; font-weight: 500;">Period</th>
+                                    <th style="padding: 16px 24px; font-weight: 500;">Status</th>
+                                    <th style="padding: 16px 24px; font-weight: 500;">Date Filed</th>
+                                    <th style="padding: 16px 24px; font-weight: 500;">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid var(--border-light);">
+                                    <td style="padding: 16px 24px; font-weight: 500; color: var(--tidre-navy);">Value Added Tax (VAT)</td>
+                                    <td style="padding: 16px 24px; color: var(--text-secondary);">April 2026</td>
+                                    <td style="padding: 16px 24px;"><span class="status-badge status-pending">Pending Payment</span></td>
+                                    <td style="padding: 16px 24px; color: var(--text-secondary);">20 May 2026</td>
+                                    <td style="padding: 16px 24px;"><button style="background: none; border: none; color: var(--tidre-green); font-weight: 600; cursor: pointer;">View <i class="fa-solid fa-chevron-right"></i></button></td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--border-light);">
+                                    <td style="padding: 16px 24px; font-weight: 500; color: var(--tidre-navy);">Value Added Tax (VAT)</td>
+                                    <td style="padding: 16px 24px; color: var(--text-secondary);">March 2026</td>
+                                    <td style="padding: 16px 24px;"><span class="status-badge status-filed">Filed</span></td>
+                                    <td style="padding: 16px 24px; color: var(--text-secondary);">18 Apr 2026</td>
+                                    <td style="padding: 16px 24px;"><button style="background: none; border: none; color: var(--tidre-green); font-weight: 600; cursor: pointer;">View <i class="fa-solid fa-chevron-right"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 16px 24px; font-weight: 500; color: var(--tidre-navy);">Corporate Income Tax</td>
+                                    <td style="padding: 16px 24px; color: var(--text-secondary);">Year 2025</td>
+                                    <td style="padding: 16px 24px;"><span class="status-badge status-filed">Filed</span></td>
+                                    <td style="padding: 16px 24px; color: var(--text-secondary);">10 Jan 2026</td>
+                                    <td style="padding: 16px 24px;"><button style="background: none; border: none; color: var(--tidre-green); font-weight: 600; cursor: pointer;">View <i class="fa-solid fa-chevron-right"></i></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </section>
+
+    <!-- 6. Payments View -->
+    <section id="view-payments" class="view">
+        <div class="app-layout">
+            <aside class="dashboard-sidebar">
+                <div class="sidebar-header green-bg">
+                    <h2 class="logo-text" style="cursor:pointer;" onclick="switchView('view-landing')">TIDRE</h2>
+                </div>
+                <nav class="sidebar-nav">
+                    <a href="#" onclick="switchView('view-dashboard')"><i class="fa-solid fa-border-all"></i> Overview</a>
+                    <a href="#" onclick="switchView('view-returns')"><i class="fa-regular fa-file-lines"></i> Returns</a>
+                    <a href="#" class="active"><i class="fa-regular fa-credit-card"></i> Payments</a>
+                    <a href="#" onclick="switchView('view-verify')"><i class="fa-solid fa-file-invoice"></i> e-Invoices</a>
+                    <a href="#" onclick="switchView('view-certificates')"><i class="fa-solid fa-certificate"></i> Certificates</a>
+                    <a href="#" onclick="switchView('view-assistant')"><i class="fa-regular fa-envelope"></i> Messages (AI)</a>
+                    <a href="#" onclick="switchView('view-profile')"><i class="fa-regular fa-user"></i> Profile</a>
+                </nav>
+            </aside>
+
+            <main class="dashboard-main">
+                <header class="dashboard-topbar">
+                    <h2>Payments & Bills</h2>
+                    <div class="topbar-actions">
+                        <div class="user-profile">
+                            <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                            <span>Welcome, Amina <i class="fa-solid fa-chevron-down"></i></span>
+                        </div>
+                    </div>
+                </header>
+                
+                <div class="dashboard-content scrollable">
+                    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 24px;">
+                        <!-- Balance Card -->
+                        <div class="card" style="background-color: var(--tidre-navy); color: white;">
+                            <p style="color: var(--text-secondary); margin-bottom: 8px;">Total Outstanding Balance</p>
+                            <h2 style="font-size: 2.5rem; margin-bottom: 24px;">TZS 120,000</h2>
+                            <button class="btn-primary" style="width: 100%; justify-content: center; background-color: var(--tidre-green); color: white; border: none;">Pay Now</button>
+                        </div>
+                        
+                        <!-- Recent Transactions -->
+                        <div class="card">
+                            <h3 style="margin-bottom: 16px; color: var(--tidre-navy);">Recent Transactions</h3>
+                            <div class="activity-list">
+                                <div class="activity-item">
+                                    <div class="activity-icon bg-light-green"><i class="fa-solid fa-check text-green"></i></div>
+                                    <div class="activity-details">
+                                        <p>Payment Received - March VAT</p>
+                                        <small>18 Apr 2026 • Control Number: 9988776655</small>
+                                    </div>
+                                    <div style="font-weight: 600; color: var(--tidre-navy);">TZS 105,000</div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-icon bg-light-green"><i class="fa-solid fa-check text-green"></i></div>
+                                    <div class="activity-details">
+                                        <p>Payment Received - Income Tax Installment</p>
+                                        <small>28 Mar 2026 • Control Number: 1122334455</small>
+                                    </div>
+                                    <div style="font-weight: 600; color: var(--tidre-navy);">TZS 500,000</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </section>
+    <!-- 7. Certificates View -->
+    <section id="view-certificates" class="view">
+        <div class="app-layout">
+            <aside class="dashboard-sidebar">
+                <div class="sidebar-header green-bg">
+                    <h2 class="logo-text" style="cursor:pointer;" onclick="switchView('view-landing')">TIDRE</h2>
+                </div>
+                <nav class="sidebar-nav">
+                    <a href="#" onclick="switchView('view-dashboard')"><i class="fa-solid fa-border-all"></i> Overview</a>
+                    <a href="#" onclick="switchView('view-returns')"><i class="fa-regular fa-file-lines"></i> Returns</a>
+                    <a href="#" onclick="switchView('view-payments')"><i class="fa-regular fa-credit-card"></i> Payments</a>
+                    <a href="#" onclick="switchView('view-verify')"><i class="fa-solid fa-file-invoice"></i> e-Invoices</a>
+                    <a href="#" class="active"><i class="fa-solid fa-certificate"></i> Certificates</a>
+                    <a href="#" onclick="switchView('view-assistant')"><i class="fa-regular fa-envelope"></i> Messages (AI)</a>
+                    <a href="#" onclick="switchView('view-profile')"><i class="fa-regular fa-user"></i> Profile</a>
+                </nav>
+            </aside>
+
+            <main class="dashboard-main">
+                <header class="dashboard-topbar">
+                    <h2>My Certificates</h2>
+                    <div class="topbar-actions">
+                        <div class="user-profile">
+                            <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                            <span>Welcome, Amina <i class="fa-solid fa-chevron-down"></i></span>
+                        </div>
+                    </div>
+                </header>
+                
+                <div class="dashboard-content scrollable">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+                        <!-- TIN Certificate -->
+                        <div class="card" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 40px 24px;">
+                            <i class="fa-solid fa-file-contract" style="font-size: 4rem; color: var(--tidre-navy); margin-bottom: 24px;"></i>
+                            <h3 style="margin-bottom: 8px;">TIN Certificate</h3>
+                            <p style="color: var(--text-secondary); margin-bottom: 24px; font-size: 0.9rem;">Taxpayer Identification Number Certificate</p>
+                            <span class="status-badge status-filed" style="margin-bottom: 24px;">Active</span>
+                            <div style="display: flex; gap: 12px; width: 100%;">
+                                <button class="btn-outline full-width" style="justify-content: center;"><i class="fa-solid fa-eye"></i> View</button>
+                                <button class="btn-primary full-width" style="justify-content: center;"><i class="fa-solid fa-download"></i> Download</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Tax Clearance -->
+                        <div class="card" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 40px 24px;">
+                            <i class="fa-solid fa-award" style="font-size: 4rem; color: var(--tidre-green); margin-bottom: 24px;"></i>
+                            <h3 style="margin-bottom: 8px;">Tax Clearance Certificate</h3>
+                            <p style="color: var(--text-secondary); margin-bottom: 24px; font-size: 0.9rem;">Valid until 31 Dec 2026</p>
+                            <span class="status-badge status-filed" style="margin-bottom: 24px;">Valid</span>
+                            <div style="display: flex; gap: 12px; width: 100%;">
+                                <button class="btn-outline full-width" style="justify-content: center;"><i class="fa-solid fa-eye"></i> View</button>
+                                <button class="btn-primary full-width" style="justify-content: center;"><i class="fa-solid fa-download"></i> Download</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </section>
+
+    <!-- 8. Profile View -->
+    <section id="view-profile" class="view">
+        <div class="app-layout">
+            <aside class="dashboard-sidebar">
+                <div class="sidebar-header green-bg">
+                    <h2 class="logo-text" style="cursor:pointer;" onclick="switchView('view-landing')">TIDRE</h2>
+                </div>
+                <nav class="sidebar-nav">
+                    <a href="#" onclick="switchView('view-dashboard')"><i class="fa-solid fa-border-all"></i> Overview</a>
+                    <a href="#" onclick="switchView('view-returns')"><i class="fa-regular fa-file-lines"></i> Returns</a>
+                    <a href="#" onclick="switchView('view-payments')"><i class="fa-regular fa-credit-card"></i> Payments</a>
+                    <a href="#" onclick="switchView('view-verify')"><i class="fa-solid fa-file-invoice"></i> e-Invoices</a>
+                    <a href="#" onclick="switchView('view-certificates')"><i class="fa-solid fa-certificate"></i> Certificates</a>
+                    <a href="#" onclick="switchView('view-assistant')"><i class="fa-regular fa-envelope"></i> Messages (AI)</a>
+                    <a href="#" class="active"><i class="fa-regular fa-user"></i> Profile</a>
+                </nav>
+            </aside>
+
+            <main class="dashboard-main">
+                <header class="dashboard-topbar">
+                    <h2>User Profile</h2>
+                    <div class="topbar-actions">
+                        <button class="btn-primary" style="background-color: var(--tidre-navy);">Save Changes</button>
+                    </div>
+                </header>
+                
+                <div class="dashboard-content scrollable">
+                    <div class="card" style="max-width: 800px;">
+                        <div style="display: flex; align-items: center; gap: 24px; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--border-light);">
+                            <div style="width: 80px; height: 80px; background-color: var(--tidre-green-light); color: var(--tidre-green); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem;">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                            <div>
+                                <h3 style="font-size: 1.5rem; margin-bottom: 4px;">Amina Kijani</h3>
+                                <p style="color: var(--text-secondary);">Business Owner • TIN: 123-456-789</p>
+                            </div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+                            <div>
+                                <label style="display: block; margin-bottom: 8px; font-size: 0.9rem; font-weight: 500; color: var(--text-secondary);">Full Name</label>
+                                <input type="text" value="Amina Kijani" style="width: 100%; padding: 12px; border: 1px solid var(--border-light); border-radius: 6px; font-size: 1rem;">
+                            </div>
+                            <div>
+                                <label style="display: block; margin-bottom: 8px; font-size: 0.9rem; font-weight: 500; color: var(--text-secondary);">Email Address</label>
+                                <input type="email" value="amina@kijanitraders.co.tz" style="width: 100%; padding: 12px; border: 1px solid var(--border-light); border-radius: 6px; font-size: 1rem;">
+                            </div>
+                            <div>
+                                <label style="display: block; margin-bottom: 8px; font-size: 0.9rem; font-weight: 500; color: var(--text-secondary);">Phone Number</label>
+                                <input type="text" value="+255 712 345 678" style="width: 100%; padding: 12px; border: 1px solid var(--border-light); border-radius: 6px; font-size: 1rem;">
+                            </div>
+                            <div>
+                                <label style="display: block; margin-bottom: 8px; font-size: 0.9rem; font-weight: 500; color: var(--text-secondary);">Business Name</label>
+                                <input type="text" value="Kijani Traders Ltd" style="width: 100%; padding: 12px; border: 1px solid var(--border-light); border-radius: 6px; font-size: 1rem;" disabled>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </section>
+
+    <!-- 9. Reports View -->
+    <section id="view-reports" class="view">
+        <div class="app-layout">
+            <aside class="dashboard-sidebar green-bg" style="background-color: var(--tidre-green);">
+                <div class="sidebar-header">
+                    <h2 class="logo-text" style="cursor:pointer;" onclick="switchView('view-landing')">TIDRE</h2>
+                </div>
+                <nav class="sidebar-nav">
+                    <a href="#" onclick="switchView('view-landing')"><i class="fa-solid fa-house"></i> Home</a>
+                    <a href="#" onclick="switchView('view-dashboard')"><i class="fa-solid fa-border-all"></i> Dashboard</a>
+                    <a href="#" onclick="switchView('view-verify')"><i class="fa-solid fa-file-invoice"></i> e-Invoices</a>
+                    <a href="#" class="active" style="background-color: rgba(255,255,255,0.2); border-left-color: white;"><i class="fa-solid fa-chart-line"></i> Reports</a>
+                    <a href="#" onclick="switchView('view-settings')"><i class="fa-solid fa-gear"></i> Settings</a>
+                    <a href="#" onclick="switchView('view-help')"><i class="fa-regular fa-circle-question"></i> Help & Support</a>
+                </nav>
+            </aside>
+
+            <main class="dashboard-main">
+                <header class="dashboard-topbar">
+                    <h2>Financial Reports</h2>
+                    <div class="topbar-actions">
+                        <button class="btn-outline"><i class="fa-solid fa-download"></i> Export PDF</button>
+                    </div>
+                </header>
+                
+                <div class="dashboard-content scrollable">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px;">
+                        <div class="card" style="height: 300px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px dashed var(--border-dark);">
+                            <i class="fa-solid fa-chart-bar" style="font-size: 3rem; color: var(--text-secondary); margin-bottom: 16px;"></i>
+                            <p style="color: var(--text-secondary);">Monthly Revenue Bar Chart</p>
+                        </div>
+                        <div class="card" style="height: 300px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px dashed var(--border-dark);">
+                            <i class="fa-solid fa-chart-pie" style="font-size: 3rem; color: var(--text-secondary); margin-bottom: 16px;"></i>
+                            <p style="color: var(--text-secondary);">Tax Distribution Pie Chart</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </section>
+
+    <!-- 10. Settings View -->
+    <section id="view-settings" class="view">
+        <div class="app-layout">
+            <aside class="dashboard-sidebar green-bg" style="background-color: var(--tidre-green);">
+                <div class="sidebar-header">
+                    <h2 class="logo-text" style="cursor:pointer;" onclick="switchView('view-landing')">TIDRE</h2>
+                </div>
+                <nav class="sidebar-nav">
+                    <a href="#" onclick="switchView('view-landing')"><i class="fa-solid fa-house"></i> Home</a>
+                    <a href="#" onclick="switchView('view-dashboard')"><i class="fa-solid fa-border-all"></i> Dashboard</a>
+                    <a href="#" onclick="switchView('view-verify')"><i class="fa-solid fa-file-invoice"></i> e-Invoices</a>
+                    <a href="#" onclick="switchView('view-reports')"><i class="fa-solid fa-chart-line"></i> Reports</a>
+                    <a href="#" class="active" style="background-color: rgba(255,255,255,0.2); border-left-color: white;"><i class="fa-solid fa-gear"></i> Settings</a>
+                    <a href="#" onclick="switchView('view-help')"><i class="fa-regular fa-circle-question"></i> Help & Support</a>
+                </nav>
+            </aside>
+
+            <main class="dashboard-main">
+                <header class="dashboard-topbar">
+                    <h2>Platform Settings</h2>
+                </header>
+                
+                <div class="dashboard-content scrollable">
+                    <div class="card" style="max-width: 600px;">
+                        <h3 style="margin-bottom: 24px; color: var(--tidre-navy);">Preferences</h3>
+                        
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--border-light);">
+                            <div>
+                                <h4 style="margin: 0; font-size: 1rem;">Language</h4>
+                                <p style="margin: 0; font-size: 0.85rem; color: var(--text-secondary);">Select your preferred language</p>
+                            </div>
+                            <select id="language-select" style="padding: 8px; border: 1px solid var(--border-light); border-radius: 4px;" onchange="changeLanguage(this.value)">
+                                <option value="en">English</option>
+                                <option value="sw">Swahili</option>
+                            </select>
+                        </div>
+
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--border-light);">
+                            <div>
+                                <h4 style="margin: 0; font-size: 1rem;">Email Notifications</h4>
+                                <p style="margin: 0; font-size: 0.85rem; color: var(--text-secondary);">Receive updates about your taxes</p>
+                            </div>
+                            <div style="width: 40px; height: 20px; background-color: var(--tidre-green); border-radius: 10px; position: relative; cursor: pointer;">
+                                <div style="width: 16px; height: 16px; background-color: white; border-radius: 50%; position: absolute; right: 2px; top: 2px;"></div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 0;">
+                            <div>
+                                <h4 style="margin: 0; font-size: 1rem;">Two-Factor Authentication</h4>
+                                <p style="margin: 0; font-size: 0.85rem; color: var(--text-secondary);">Add an extra layer of security</p>
+                            </div>
+                            <button class="btn-outline" style="padding: 6px 12px;">Enable</button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </section>
+
+    <!-- 11. Help View -->
+    <section id="view-help" class="view">
+        <div class="app-layout">
+            <aside class="dashboard-sidebar green-bg" style="background-color: var(--tidre-green);">
+                <div class="sidebar-header">
+                    <h2 class="logo-text" style="cursor:pointer;" onclick="switchView('view-landing')">TIDRE</h2>
+                </div>
+                <nav class="sidebar-nav">
+                    <a href="#" onclick="switchView('view-landing')"><i class="fa-solid fa-house"></i> Home</a>
+                    <a href="#" onclick="switchView('view-dashboard')"><i class="fa-solid fa-border-all"></i> Dashboard</a>
+                    <a href="#" onclick="switchView('view-verify')"><i class="fa-solid fa-file-invoice"></i> e-Invoices</a>
+                    <a href="#" onclick="switchView('view-reports')"><i class="fa-solid fa-chart-line"></i> Reports</a>
+                    <a href="#" onclick="switchView('view-settings')"><i class="fa-solid fa-gear"></i> Settings</a>
+                    <a href="#" class="active" style="background-color: rgba(255,255,255,0.2); border-left-color: white;"><i class="fa-regular fa-circle-question"></i> Help & Support</a>
+                </nav>
+            </aside>
+
+            <main class="dashboard-main">
+                <header class="dashboard-topbar">
+                    <h2>Help & Support</h2>
+                </header>
+                
+                <div class="dashboard-content scrollable">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+                        <div class="card">
+                            <i class="fa-solid fa-phone" style="font-size: 2rem; color: var(--tidre-green); margin-bottom: 16px;"></i>
+                            <h3>Call Center</h3>
+                            <p style="color: var(--text-secondary); margin-bottom: 16px;">Available Monday to Friday, 8am to 5pm.</p>
+                            <h2 style="color: var(--tidre-navy);">0800 111 222</h2>
+                        </div>
+                        <div class="card">
+                            <i class="fa-solid fa-envelope" style="font-size: 2rem; color: var(--tidre-green); margin-bottom: 16px;"></i>
+                            <h3>Email Support</h3>
+                            <p style="color: var(--text-secondary); margin-bottom: 16px;">Send us an email and we'll reply within 24 hours.</p>
+                            <h2 style="color: var(--tidre-navy);">support@tidre.go.tz</h2>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

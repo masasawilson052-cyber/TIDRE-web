@@ -1,0 +1,14 @@
+TIDRE v2 - GitHub Pages replacement
+
+Keep the existing repository name TRA-SmartTax-Web and its Pages settings.
+Unzip this package and replace the publishing root with these files and the vendor folder.
+index.html must remain at the root. Do not upload only the ZIP file itself.
+
+Existing submitted URL:
+https://masasawilson052-cyber.github.io/TRA-SmartTax-Web/
+
+Use fictional or redacted examples. This is a working local-data prototype, not an official TRA production service.
+No API key or package installation is required. On a computer, serve this folder over HTTP; do not double-click index.html.
+
+The docs folder explains proposal alignment, verified needs, scope, tests, unresolved integration requirements and the release checks.
+The separate private preview is not the submitted GitHub Pages URL.

@@ -1,0 +1,114 @@
+[
+  {
+    "file": "tesseract.min.js",
+    "package": "tesseract.js",
+    "version": "6.0.1",
+    "bytes": 62961,
+    "sha256": "10fff78484067759c43028a02a72d76d0b90eb17302bb23b58a9ec5410bc928b"
+  },
+  {
+    "file": "worker.min.js",
+    "package": "tesseract.js",
+    "version": "6.0.1",
+    "bytes": 111162,
+    "sha256": "38645599043239c0eb6db08a6504a92dcdc292200535f3e9339cd77c4443b842"
+  },
+  {
+    "file": "TESSERACT-LICENSE.md",
+    "package": "tesseract.js",
+    "version": "6.0.1",
+    "bytes": 11357,
+    "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+  },
+  {
+    "file": "tesseract.min.js.LICENSE.txt",
+    "package": "tesseract.js",
+    "version": "6.0.1",
+    "bytes": 149,
+    "sha256": "cdf963ced7d25a0f98901a547647b4d6e2dbe0197fd78c87a059a87b0e542fe2"
+  },
+  {
+    "file": "worker.min.js.LICENSE.txt",
+    "package": "tesseract.js",
+    "version": "6.0.1",
+    "bytes": 466,
+    "sha256": "45f54171aeaa1d10c0c1a66f374b7bba1f02472b1487fbe892eec04f840002ac"
+  },
+  {
+    "file": "tesseract-core-lstm.wasm.js",
+    "package": "tesseract.js-core",
+    "version": "6.1.2",
+    "bytes": 3954181,
+    "sha256": "775a35df6f2ae100e02609443e6bd5cafcd07983dd6175454ca4a432a7730687"
+  },
+  {
+    "file": "tesseract-core-lstm.wasm",
+    "package": "tesseract.js-core",
+    "version": "6.1.2",
+    "bytes": 2871085,
+    "sha256": "220e2e87551edccb85519796a170469f8ab2a8055216789e3b8b1ada18b7bc2b"
+  },
+  {
+    "file": "TESSERACT-CORE-LICENSE",
+    "package": "tesseract.js-core",
+    "version": "6.1.2",
+    "bytes": 11358,
+    "sha256": "c6596eb7be8581c18be736c846fb9173b69eccf6ef94c5135893ec56bd92ba08"
+  },
+  {
+    "file": "jspdf.umd.min.js",
+    "package": "jspdf",
+    "version": "4.2.1",
+    "bytes": 420165,
+    "sha256": "e6551fcdc32f09d6853b2c5126d18d01d9447e0da618a41a11ebeee0f6c20d54"
+  },
+  {
+    "file": "JSPDF-LICENSE",
+    "package": "jspdf",
+    "version": "4.2.1",
+    "bytes": 1142,
+    "sha256": "dc388ec35ff463288cdde3588a36fd4ed12a45deff053243b37309acc9ef583b"
+  },
+  {
+    "file": "pdf.min.mjs",
+    "package": "pdfjs-dist",
+    "version": "6.3.289",
+    "bytes": 458705,
+    "sha256": "f80490490320511e5df18c580b9edd6b5db8058dceebaf6f161992e0a964b9e2"
+  },
+  {
+    "file": "pdf.worker.min.mjs",
+    "package": "pdfjs-dist",
+    "version": "6.3.289",
+    "bytes": 1265413,
+    "sha256": "8ab0e5e30031b4a06ecfddd5ae9562f0227f830ee7ec9ed1a968b134243d2386"
+  },
+  {
+    "file": "PDFJS-LICENSE",
+    "package": "pdfjs-dist",
+    "version": "6.3.289",
+    "bytes": 10174,
+    "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+  },
+  {
+    "file": "eng.traineddata.gz",
+    "package": "@tesseract.js-data/eng",
+    "version": "1.0.0",
+    "bytes": 2952873,
+    "sha256": "45b4cb346724ac1774f1c36f42f182b887bcdb28ebe63e6fff90ac41f3fcff91"
+  },
+  {
+    "file": "Inter-Regular.ttf",
+    "package": "Inter / Google Fonts",
+    "version": "2026-09-08 Latin subset",
+    "bytes": 46432,
+    "sha256": "3b3c09473aabe098c1df2570ee5075d28485be12055172a8d0e16e5c3be46583"
+  },
+  {
+    "file": "Inter-Bold.ttf",
+    "package": "Inter / Google Fonts",
+    "version": "2026-09-08 Latin subset",
+    "bytes": 46576,
+    "sha256": "6b45b2c3d74fbac4f30ae2f14d9e5c7a23d227698f6545fc2dfb2c12cc50b8ad"
+  }
+]

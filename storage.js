@@ -1,0 +1,8 @@
+import {seedState} from './core.js';
+const KEY='tidre.v2';
+export function loadState(){const raw=localStorage.getItem(KEY);if(!raw){const state=seedState();localStorage.setItem(KEY,JSON.stringify(state));return state;}const data=JSON.parse(raw);if(data.version!==2||!Array.isArray(data.records)||!Array.isArray(data.events))throw Error('Stored data could not be read. Export or clear browser data after preserving a backup.');return data;}
+export function saveState(next){localStorage.setItem(KEY,JSON.stringify(next));}
+export async function openEvidence(){return new Promise((resolve,reject)=>{const request=indexedDB.open('tidre-evidence-v2',1);request.onupgradeneeded=()=>request.result.createObjectStore('files',{keyPath:'id'});request.onsuccess=()=>resolve(request.result);request.onerror=()=>reject(request.error);});}
+export async function putEvidence(id,file,previewFile=null){const db=await openEvidence();try{return await new Promise((resolve,reject)=>{const tx=db.transaction('files','readwrite');tx.objectStore('files').put({id,file,previewFile,name:file.name||'receipt.png',type:file.type});tx.oncomplete=()=>resolve(id);tx.onerror=()=>reject(tx.error);});}finally{db.close();}}
+export async function getEvidence(id){const db=await openEvidence();try{return await new Promise((resolve,reject)=>{const tx=db.transaction('files','readonly');const r=tx.objectStore('files').get(id);r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});}finally{db.close();}}
+export async function deleteEvidence(id){const db=await openEvidence();try{return await new Promise((resolve,reject)=>{const tx=db.transaction('files','readwrite');tx.objectStore('files').delete(id);tx.oncomplete=()=>resolve();tx.onerror=()=>reject(tx.error);});}finally{db.close();}}

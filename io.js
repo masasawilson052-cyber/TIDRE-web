@@ -13,7 +13,8 @@ export async function extractDocument(file,onProgress){
  let imageBlob=file,text='',confidence=null,method='ocr';
  if(file.type==='application/pdf'){
    const pdfjs=await import('./vendor/pdf.min.mjs');pdfjs.GlobalWorkerOptions.workerSrc=new URL('./vendor/pdf.worker.min.mjs',import.meta.url).href;
-   const pdf=await pdfjs.getDocument({data:new Uint8Array(bytes),isEvalSupported:false,stopAtErrors:true,disableFontFace:true}).promise;
+   const loadingTask=pdfjs.getDocument({data:new Uint8Array(bytes),isEvalSupported:false,stopAtErrors:true,disableFontFace:true});
+   const pdf=await loadingTask.promise;
    try{
     if(pdf.numPages!==1)throw Error('Upload one receipt page at a time. This PDF contains '+pdf.numPages+' pages.');
     const page=await pdf.getPage(1),content=await page.getTextContent();
@@ -24,7 +25,7 @@ export async function extractDocument(file,onProgress){
     imageBlob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));
     if(!imageBlob)throw Error('This PDF could not be previewed. Try a photograph instead.');
     if(text.trim().length>=30){method='pdf-text';return {text,confidence,sourceHash,imageBlob,method};}
-   }finally{await pdf.destroy();}
+   }finally{if(typeof loadingTask.destroy==='function')await loadingTask.destroy();}
  }
  await loadScript('tesseract.min.js');onProgress('Loading the on-device reader',.06);
  const root=new URL('./vendor/',import.meta.url).href;

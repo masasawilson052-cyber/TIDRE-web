@@ -1,11 +1,11 @@
-export const APP_VERSION = '2.0.0';
+export const APP_VERSION = '2.1.0';
 export const RULE_VERSION = 'TRA-public-guidance-2026-09-08';
 export const SOURCES = {
   individual: {name:'TRA · Income tax for individuals', url:'https://www.tra.go.tz/page/income-tax-for-individuals'},
   starting: {name:'TRA · Starting a business',url:'https://www.tra.go.tz/page/starting-business-income-for-individuals-and-paying-taxes'},
   vat: {name:'TRA · Value added tax',url:'https://www.tra.go.tz/page/value-added-tax-vat'},
   budget: {name:'Government budget speech 2026/27',url:'https://www.tra.go.tz/images/uploads/public_notice/english/HOTUBA_YA_BAJETI_YA_SERIKALI_2026-2027.pdf'},
-  portal:{name:'Official TRA Taxpayer Portal',url:'https://taxpayerportal.tra.go.tz/'},
+  portal:{name:'Official TRA Taxpayer Portal',url:'https://taxpayersportal.tra.go.tz/'},
   support:{name:'TRA · Contact and services',url:'https://www.tra.go.tz/'},
 };
 export const CATEGORIES = ['Sales','Stock','Transport','Utilities','Rent','Equipment','Services','Other'];
@@ -39,7 +39,7 @@ export function parseReceipt(text){
  else if(numeric)date=numeric[3]+'-'+numeric[2].padStart(2,'0')+'-'+numeric[1].padStart(2,'0');
  else if(named){const m=['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'].indexOf(named[2].slice(0,3).toLowerCase())+1;date=named[3]+'-'+String(m).padStart(2,'0')+'-'+named[1].padStart(2,'0');}
  if(!validDate(date))date='';
- const seller=lines.find(l=>/[a-z]{3}/i.test(l)&&!/sample|fictional|receipt|risiti|invoice|not a fiscal|date|total|tin:/i.test(l))||'';
+ const seller=lines.find(l=>/[a-z]{3}/i.test(l)&&!/sample|fictional|receipt|risiti|invoice|not a fiscal|date|total|tin:|^dar es salaam$|^tel[.: ]|^phone[.: ]/i.test(l))||'';
  const reference=String(text).match(/(?:receipt\s*(?:no|number)?|invoice\s*(?:no|number)?|reference|ref|risiti)\s*[:#.-]\s*([a-z0-9-]+)/i)?.[1]||'';
  return {amount,date,seller:seller.slice(0,150),vat,reference,uncertain:[...(!amount?['amount']:[]),...(!date?['date']:[]),...(numeric&&Number(numeric[1])<=12&&Number(numeric[2])<=12?['date format']:[]),...(!seller?['seller']:[])],text:String(text).slice(0,30000)};
 }
